@@ -1,14 +1,15 @@
+# grpc-interceptors
+This library provides a way to instrument Node.js gRPC clients and servers with interceptors/middleware. Server-side interceptors are [not yet implemented](https://github.com/grpc/grpc-node/issues/419) in grpc for node.  This is a quick fix.
+
 # Fork
 [Original repository here](https://github.com/echo-health/node-grpc-interceptors).
 
-This fork was to allow better password authentication through interceptors.
+This fork was to allow better password authentication through interceptors. Only a small change in file **server-proxy.js** was necessary.
 
-A change was made to allow the interceptor access to the callback. That way, it's now possible to cancel the RPC by calling the callback with an error. This is necessary when doing simple user/password authentication through interceptors.
+This change was made to allow the interceptor access to the callback. That way, it's now possible to cancel the RPC by calling the callback with an error. This is necessary when doing simple user/password authentication through interceptors.
 
 For much better security, use also [TLS mutual authentication](https://github.com/grpc/grpc/issues/6757#issuecomment-261703455).
 
-# grpc-interceptors
-This library provides a way to instrument Node.js gRPC clients and servers with interceptors/middleware.
 
 ### Usage
 
