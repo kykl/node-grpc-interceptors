@@ -1,6 +1,6 @@
 {
-  "name": "@echo-health/grpc-interceptors",
-  "version": "0.0.12",
+  "name": "mfecteau34/grpc-interceptors",
+  "version": "0.0.13",
   "scripts": {
     "test": "jest",
     "lint": "eslint . --fix",
@@ -25,13 +25,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/echo-health/node-grpc-interceptors.git"
+    "url": "git+https://github.com/mfecteau34/node-grpc-interceptors.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/echo-health/node-grpc-interceptors/issues"
+    "url": "https://github.com/mfecteau34/node-grpc-interceptors/issues"
   },
-  "homepage": "https://github.com/echo-health/node-grpc-interceptors#readme",
+  "homepage": "https://github.com/mfecteau34/node-grpc-interceptors#readme",
   "description": ""
 }
