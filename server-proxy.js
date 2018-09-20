@@ -46,9 +46,9 @@ const handler = {
                             if (i.done) {
                                 return resolve(fn(call, newCallback(callback)));
                             }
-                            return resolve(i.value(ctx, next));
+                            return resolve(i.value(ctx, next, callback));
                         });
-                    });
+                    }, callback);
                 };
             }
             return target.addService(service, newImplementation);
