@@ -1,28 +1,47 @@
+# Fork
+[Original repository here](https://github.com/echo-health/node-grpc-interceptors).
+
+This fork was to allow better password authentication through interceptors.
+
+A change was made to allow the interceptor access to the callback. That way, it's now possible to cancel the RPC by calling the callback with an error. This is necessary when doing simple user/password authentication through interceptors.
+
+For much better security, use also [TLS mutual authentication](https://github.com/grpc/grpc/issues/6757#issuecomment-261703455).
+
 # grpc-interceptors
-This library provides a way to instrument Node.js gRPC clients and servers with interceptors/middleware e.g. for Prometheus metrics, Zipkin tracing etc.
+This library provides a way to instrument Node.js gRPC clients and servers with interceptors/middleware.
 
 ### Usage
+
+This usage example takes for granted that two RPC metadata parameters are sent with the RPC call.  One parameter is "user", and the other "password".
+
+If using the grpcurl utility to test, add those parameters in the command line : '''-rpc-header 'user: rpcuser' -rpc-header 'password: abc123''''
+
 ```js
 const interceptors = require('grpc-interceptors');
+const _ = require('lodash');
 
 const server = interceptors.serverProxy(new grpc.Server());
 server.addService(proto.MyPackage.MyService.service, { Method1, Method2 });
 
-const myMiddlewareFunc = function (ctx, next) {
+const myMiddlewareFunc = async function (ctx, next, callback) {
 
     // do stuff before call
     console.log('Making gRPC call...');
+    
+    // Doing authentication
+    let user = _.get(ctx,'call.metadata._internal_repr.user[0]','undefined')
+    let password = _.get(ctx,'call.metadata._internal_repr.password[0]','undefined')
+    if (user == "rpcuser" && password == "abc123") { 
+        // Executing the RPC call only if the authentication was successful
+        await next()
+        // do stuff after call
+        console.log(ctx.status.code);
+    } else {
+        callback(new Error("Unauthorized"));
+    }
 
-    await next()
-
-    // do stuff after call
-    console.log(ctx.status.code);
 }
 
 server.use(myMiddlewareFunc);
 ```
 
-### Available Interceptors
-- [client-zipkin-interceptor](interceptors/client-zipkin-interceptor.js)
-- [server-zipkin-interceptor](interceptors/server-zipkin-interceptor.js)
-- [prometheus-interceptor](https://github.com/echo-health/node-grpc-prometheus)
