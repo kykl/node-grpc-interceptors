@@ -38,6 +38,7 @@ const myMiddlewareFunc = async function (ctx, next, callback) {
         // do stuff after call
         console.log(ctx.status.code);
     } else {
+        // The whole point for this fork was to have access to callback function ...
         callback(new Error("Unauthorized"));
     }
 
