@@ -2,6 +2,9 @@
 This library provides a way to instrument Node.js gRPC clients and servers with interceptors/middleware. Server-side interceptors are [not yet implemented](https://github.com/grpc/grpc-node/issues/419) in grpc for node.  This is a quick fix.
 
 # Fork
+
+**This package is currently broken. Will fix it in the coming days.**
+
 [Original repository here](https://github.com/echo-health/node-grpc-interceptors).
 
 This fork was to allow better password authentication through interceptors. Only a small change in file **server-proxy.js** was necessary.
