@@ -34,7 +34,7 @@ const myMiddlewareFunc = async function (ctx, next, callback) {
     let password = _.get(ctx,'call.metadata._internal_repr.password[0]','undefined')
     if (user == "rpcuser" && password == "abc123") { 
         // Executing the RPC call only if the authentication was successful
-        await next()
+        await next();
         // do stuff after call
         console.log(ctx.status.code);
     } else {
