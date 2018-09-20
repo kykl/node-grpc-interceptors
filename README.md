@@ -24,6 +24,7 @@ const _ = require('lodash');
 const server = interceptors.serverProxy(new grpc.Server());
 server.addService(proto.MyPackage.MyService.service, { Method1, Method2 });
 
+// Original version did not have "callback" as a parameter.
 const myMiddlewareFunc = async function (ctx, next, callback) {
 
     // do stuff before call
