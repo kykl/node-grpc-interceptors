@@ -14,7 +14,7 @@ This library provides a way to instrument Node.js gRPC clients and servers with 
 
 This usage example takes for granted that two RPC metadata parameters are sent with the RPC call.  One parameter is "user", and the other "password".
 
-If using the grpcurl utility to test, add those parameters in the command line : '''-rpc-header 'user: rpcuser' -rpc-header 'password: abc123''''
+If using the grpcurl utility to test, add those parameters in the command line : **-rpc-header 'user: rpcuser' -rpc-header 'password: abc123'**
 
 ```js
 const interceptors = require('grpc-interceptors');
