@@ -1,5 +1,5 @@
 {
-  "name": "mfecteau34/grpc-interceptors",
+  "name": "grpc-interceptors",
   "version": "0.0.13",
   "scripts": {
     "test": "jest",
