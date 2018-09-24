@@ -14,7 +14,7 @@ For much better security, use also [TLS mutual authentication](https://github.co
 ## Install
 
 ```
-npm install git+http://github.com/mfecteau34/node-grpc-interceptors.git
+npm install git+https://github.com/mfecteau34/node-grpc-interceptors.git
 ```
 
 ### Usage
