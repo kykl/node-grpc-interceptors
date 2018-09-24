@@ -7,7 +7,7 @@ This library provides a way to instrument Node.js gRPC clients and servers with 
 
 This fork was to allow better password authentication through interceptors. In original library, it was not possible to raise an error if authorization was denied.
 
-This change was made to allow the interceptor access to the callback. That way, it's now possible to cancel the RPC by calling the callback with an error. This is necessary when doing simple user/password authentication through interceptors.
+In this fork, the interceptor has now access to the callback (of the RPC call). That way, it's now possible to cancel the RPC by calling the callback with an error. This is necessary when doing simple user/password authentication through interceptors.
 
 For much better security, use also [TLS mutual authentication](https://github.com/grpc/grpc/issues/6757#issuecomment-261703455).
 
@@ -21,7 +21,7 @@ npm install git+https://github.com/mfecteau34/node-grpc-interceptors.git
 
 This usage example takes for granted that two RPC metadata parameters are sent with the RPC call.  One parameter is "user", and the other "password".
 
-If using the grpcurl utility to test, add those parameters in the command line : **-rpc-header 'user: rpcuser' -rpc-header 'password: abc123'**
+If using the grpcurl utility for testing, add those parameters in the command line : **-rpc-header 'user: rpcuser' -rpc-header 'password: abc123'**
 
 Lodash is also used to get the parameters easily.
 
