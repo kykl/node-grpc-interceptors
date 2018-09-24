@@ -11,6 +11,11 @@ This change was made to allow the interceptor access to the callback. That way, 
 
 For much better security, use also [TLS mutual authentication](https://github.com/grpc/grpc/issues/6757#issuecomment-261703455).
 
+## Install
+
+```
+npm install git+http://github.com/mfecteau34/node-grpc-interceptors.git
+```
 
 ### Usage
 
