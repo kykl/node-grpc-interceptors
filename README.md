@@ -5,7 +5,7 @@ This library provides a way to instrument Node.js gRPC clients and servers with 
 
 [Original repository here](https://github.com/echo-health/node-grpc-interceptors).  Only two small changes in file **server-proxy.js** were done in this fork.
 
-This fork was to allow better password authentication through interceptors. In original library, it was not possible to raise an error.
+This fork was to allow better password authentication through interceptors. In original library, it was not possible to raise an error if authorization was denied.
 
 This change was made to allow the interceptor access to the callback. That way, it's now possible to cancel the RPC by calling the callback with an error. This is necessary when doing simple user/password authentication through interceptors.
 
