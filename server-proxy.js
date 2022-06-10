@@ -1,5 +1,5 @@
 const utils = require('./utils');
-const grpc = require('grpc-js');
+const grpc = require('@grpc/grpc-js');
 
 const handler = {
     get(target, propKey) {
