@@ -1,5 +1,5 @@
 # grpc-interceptors
-This library provides a way to instrument Node.js gRPC clients and servers with interceptors/middleware. Server-side interceptors are [not yet implemented](https://github.com/grpc/grpc-node/issues/419) in grpc for node.  This library is a temporary fix for this.
+This library provides a way to instrument Node.js gRPC clients and servers with interceptors/middleware. Server-side interceptors are [not yet implemented](https://github.com/grpc/grpc-node/issues/419) in grpc for node.  This library is a temporary fix for this.  Node module grpc-js is used.
 
 # Fork
 
