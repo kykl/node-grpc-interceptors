@@ -1,13 +1,13 @@
 {
   "name": "grpc-interceptors",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "scripts": {
     "test": "jest",
     "lint": "eslint . --fix",
     "depcheck": "depcheck --ignores=eslint-config-plugin:*"
   },
   "dependencies": {
-    "grpc": "^1.11.1",
+    "grpc-js": "^1.6.7",
     "zipkin": "^0.12.0",
     "zipkin-transport-http": "^0.12.0"
   },
