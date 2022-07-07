@@ -11,7 +11,7 @@ const toLowerCamelCase = str => {
 
 const lookupServiceMetadata = (service, implementation) => {
     const serviceKeys = Object.keys(service);
-    const implementationKeys = Object.keys(implementation);
+    const implementationKeys = Reflect.ownKeys(Object.getPrototypeOf(implementation)).map(k => k.toString());
     const intersectingMethods = serviceKeys
         .filter(k => {
             return implementationKeys.map(k => toLowerCamelCase(k)).indexOf(k) !== -1;
