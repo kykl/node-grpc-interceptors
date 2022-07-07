@@ -36,7 +36,7 @@ const lookupServiceMetadata = (service, implementation) => {
     return key => {
         return Object.keys(intersectingMethods)
             .filter(k => toLowerCamelCase(key) === k)
-            .map(k => intersectingMethods[k]).pop();
+            .map(k => { return intersectingMethods[k] }).pop();
     };
 };
 
